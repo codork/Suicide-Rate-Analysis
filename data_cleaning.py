@@ -1,14 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
+'''
+@author: Poorva Bhalerao
+@date: 13/11/19
+'''
 import csv
-
-
-# In[5]:
-
 
 ages = []
 rows = []
@@ -39,21 +33,6 @@ with open('master.csv') as master:
     fields.append('age_ub')
     
     with open('newmaster.csv', 'w') as newfile:
-        csvwriter = csv.writer(newfile)
-        
-        csvwriter.writerow(fields)
-        
+        csvwriter = csv.writer(newfile)      
+        csvwriter.writerow(fields)  
         csvwriter.writerows(rows)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
