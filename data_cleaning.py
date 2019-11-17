@@ -1,4 +1,14 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 import csv
+
+
+# In[2]:
+
 
 ages = []
 rows = []
@@ -33,9 +43,10 @@ with open('master.csv') as master:
     fields.append('age_lb')
     fields.append('age_ub')
 
-    with open('newmaster.csv', 'w') as newfile:
+    with open('suicide_data.csv', 'w') as newfile:
         csvwriter = csv.writer(newfile)
 
         csvwriter.writerow(fields)
 
         csvwriter.writerows(rows)
+
