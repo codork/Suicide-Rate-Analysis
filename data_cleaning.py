@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[7]:
 
 
 import csv
 
 
-# In[2]:
+# In[9]:
 
 
 ages = []
@@ -32,13 +32,13 @@ with open('master.csv') as master:
         #remove 'country-year' column
         row.remove(row[6])
         #remove 'HDI'
-        row.remove(row[8])
+        row.remove(row[6])
 
         rows.append(row)
 
     fields.remove(fields[3])
     fields.remove(fields[6])
-    fields.remove(fields[8])
+    fields.remove(fields[6])
 
     fields.append('age_lb')
     fields.append('age_ub')
@@ -49,4 +49,10 @@ with open('master.csv') as master:
         csvwriter.writerow(fields)
 
         csvwriter.writerows(rows)
+
+
+# In[ ]:
+
+
+
 
