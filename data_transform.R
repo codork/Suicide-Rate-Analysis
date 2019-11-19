@@ -1,7 +1,7 @@
-library(reshape2)
+library(dplyr)
 
-#set working dir to import csv file
-setwd("D:/TYBTech/SCSL/SCSL Project")
+#set working dir to where csv file is located for importing csv file
+#setwd("D:/TYBTech/SCSL/SCSL Project")
 getwd()
 suicide.data <- read.csv("suicide_data.csv")
 
@@ -22,6 +22,15 @@ suicide.data <- cbind(suicide.data,age=avg_age)
 #drop age_lb, age_ub columns
 suicide.data$age_lb = NULL
 suicide.data$age_ub = NULL
+#drop columns with redundant information - suicides per 100k population and gdp per capita 
+suicide.data$suicides.100k.pop = NULL
+suicide.data$gdp_per_capita....= NULL
+#drop generation column
+suicide.data$generation = NULL
+
+#create tbl_df object
+df <- tbl_df(suicide.data)
+df <- arrange(df, country, year, age, sex)
 
 
 
