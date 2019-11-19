@@ -32,5 +32,18 @@ suicide.data$generation = NULL
 df <- tbl_df(suicide.data)
 df <- arrange(df, country, year, age, sex)
 
+#filter some countries with common range of 'year's
+#country_years.csv contains manually consolidated data for country, year_from and year_to 
+country.year.range <- read.csv("country_years.csv")
+yeardf <- tbl_df(country.year.range)
+#arrange according to the range and year_from and find countries to be removed
+yeardf <- arrange(yeardf, Year.to-Year.from, Year.from)
 
+#remove unwanted countries
+df <- df[!(df$country=="United Arab Emirates") | !(df$country=="Turkey") | !(df$country=="Japan")
+         | !(df$country=="Maldives") | !(df$country=="Azerbaijan") | !(df$country=="Philippines"), ]
+#remove year rows that are out of range selected (1995-2014)
+df <- df[!(df$year<1995) | !(df$year>2014), ]
 
+#rearrange
+df <- arrange(df, country, year, age, sex)
