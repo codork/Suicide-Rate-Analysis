@@ -20,7 +20,7 @@ with open('master.csv') as master:
 
     for row in csvreader:
         age = row[3].split(' ')[0].strip('+').split('-')
-        row[9] = row[9].join(row[9].split(,))
+        row[9] = "".join(row[9].split(','))
 
         if (len(age) == 2):
             row.append(age[0])
@@ -50,10 +50,3 @@ with open('master.csv') as master:
         csvwriter.writerow(fields)
 
         csvwriter.writerows(rows)
-
-
-# In[ ]:
-
-
-
-
